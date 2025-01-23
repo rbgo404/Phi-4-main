@@ -21,7 +21,7 @@ class ResponseObjects(BaseModel):
 class InferlessPythonModel:
     def initialize(self):
         model_id = "microsoft/Phi-3-mini-4k-instruct"
-        self.llm = LLM(model=model_id,enforce_eager=True)
+        self.llm = LLM(model=model_id,enforce_eager=True,dtype="float16")
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
 
     def infer(self, request: RequestObjects) -> ResponseObjects:
